@@ -2,9 +2,10 @@
 {% load widget_tweaks %}
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <style media="screen" charset="utf-8">
+ 
         form{
            margin: 50px; 
           
@@ -18,7 +19,7 @@
 
 
 <br><br><br>
-<h3 style="text-align: center;color: red;">INSCRIPTION ETUDIANT</h3>
+<h3 style="text-align: center;color: black;">INSCRIPTION ETUDIANT</h3>
 <form method="POST" autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-row">
@@ -75,7 +76,7 @@
       </div>
 
 
-    <button type="submit" class="btn btn-primary">Inscription</button>
+    <button type="submit" class="btn btn-primary" style="background-color: #fd7e14;">Inscription</button>
   </form>
 
 
