@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+ 
+
+
+<br><br><br>
+<h3 style="text-align: center;color: red;">INSCRIPTION ETUDIANT</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Nom d'utilisateur</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Mot de passe</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="first_name">Prénom</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="Karidjatou" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="last_name">Nom</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Koné" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mobile">Téléphone</label>
+          {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="01 43 45 03 44" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="address">Lieu d'habitation</label>
+          {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Treichville" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ecole">Ecole</label>
+          {% render_field studentForm.ecole|attr:'required:true'  class="form-control" placeholder="Lycée Moderne DIMBOKRO" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="classe">Classe</label>
+          {% render_field studentForm.classe|attr:'required:true'  class="form-control" placeholder="Tle C 1" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="profile_pic">Image Profil</label>
+          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        
+        
+      </div>
+
+
+    <button type="submit" class="btn btn-primary">Inscription</button>
+  </form>
+
+
+<br><br>
+{% include "quiz/footer.html" %}
+  </body>
+</html>

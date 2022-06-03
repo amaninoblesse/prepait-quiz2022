@@ -1,0 +1,58 @@
+{% extends 'student/studentbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+<br><br>
+<div class="container my-4">
+    <div class="jumbotron">
+
+	      <h3 class="text-info text-center">Avant de débuter l'examen, voici les règles</h3>
+
+        <div class="row">
+
+            <div class="card border-info mx-4 my-4">
+                <div class="card-body text-info">
+
+                    <h4 class="card-title">Details Examen :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>Libelle Examen : {{course.course_name}}</li>
+                            <li>Total Question : {{total_questions}}</li>
+                            <li>Total Notes : {{total_marks}}</li>
+                        </ul>
+                    <p></p>
+
+
+
+                    <h4 class="card-title">Règles :</h4>
+                    <p class="card-text">
+                        </p><ul style="list-style:decimal;">
+                            <li>Toutes les questions sont à choix multiples.</li>
+                            <li><span class="text-danger">Une seule réponse est correcte.</span></li>
+                            <li>Chaque question porte des notes différentes 
+                            </li>
+                
+                            <li>Essayer de répondre le plus rapidement possible.</li>
+                            <li>Si vous actualisez la page u vous faites un retour, vous aurez une nouvelle question et la question sur laquelle vous étiez sera considérée comme soumise.</li>
+                            <li>Les questions sont affichées de façon aléartoire en fonction de chaque utilisateur.</li>
+                            <li>Vous aurez immédiatement le total de vos points apès soumission .</li>
+                        </ul>
+                    <p></p>
+                    <a href="{% url 'start-exam' course.id  %}" class="btn btn-info">Commencer</a>
+                </div>  
+                <div class="card-footer">Bonne chance à vous !</div>  
+            </div>  
+        </div>  
+
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}
