@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn it_prepare.wsgi --timeout 120
+web: gunicorn onlinequiz.wsgi --timeout 120
