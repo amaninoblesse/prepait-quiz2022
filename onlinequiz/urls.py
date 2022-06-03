@@ -11,7 +11,7 @@ urlpatterns = [
 
 
     path('',views.home_view,name=''),
-    path('logout', LogoutView.as_view(template_name='quiz/logout.html'),name='logout'),
+    path('logout', LogoutView.as_view(template_name='quiz/index.html'),name='index'),
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
