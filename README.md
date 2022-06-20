@@ -59,3 +59,16 @@ EMAIL_RECEIVING_USER = 'youremail@gmail.com'
 ## Drawbacks/LoopHoles
 - Admin/Teacher can add any number of questions to any course, But while adding course, admin provide question number.
 
+
+## Deployment
+heroku login
+
+----github-------
+
+git add .
+git commit -m "my commit"
+git push origin master
+
+----heroku--------
+git push heroku master
+
