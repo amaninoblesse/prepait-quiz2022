@@ -30,7 +30,7 @@ DEBUG = True
 
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['prepaitquiz.herokuapp.com']
+ALLOWED_HOSTS = ['prepaitquiz.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -104,6 +104,18 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'quiz',
+#         'USER': 'postgres',
+#         'PASSWORD': '123456',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
+#     }
+# }
 
 
 # Password validation

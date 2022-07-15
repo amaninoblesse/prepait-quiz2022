@@ -19,7 +19,7 @@
   </style>
 </head>
 <h2 style="text-align:center; color:blue;">AJouter QUESTION</h2>
-<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;" enctype="multipart/form-data">
     {%csrf_token%}
     <div class="form-group">
         <label for="question">Cours</label>
@@ -29,24 +29,68 @@
       <label for="question">Question</label>
       {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="Quelle est la monaie de la CI  ?" %}
         <br>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            {% render_field questionForm.question_pic class="form-control" placeholder="" %}
+          </div>
+          
+        </div>
+        <br>
       <label for="question_number">Notes</label>
       {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
         <br>
+        <br>
       <label for="option1">Option 1</label>
       {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="fcfa" %}
+      <br>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            {% render_field questionForm.option1_pic class="form-control" placeholder="" %}
+          </div>
+          
+        </div>
         <br>
+        
       <label for="option2">Option 2</label>
       {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="Dollar" %}
+        <br>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="option2_pic">Image</label>
+            {% render_field questionForm.option2_pic class="form-control" placeholder="" %}
+          </div>
+          
+        </div>
         <br>
       <label for="option3">Option 3</label>
       {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="Taka" %}
         <br>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="option3_pic">Image</label>
+            {% render_field questionForm.option3_pic class="form-control" placeholder="" %}
+          </div>
+          
+        </div>
+        <br>
       <label for="option4">Option 4</label>
       {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="Euro" %}
         <br>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="option4_pic">Image</label>
+            {% render_field questionForm.option4_pic class="form-control" placeholder="" %}
+          </div>
+          
+        </div>
+        <br>
       <label for="answer">Reponse</label>
       {% render_field questionForm.answer|attr:'required:true' class="form-control" %}
+
+     
     </div>
+
+
     
 
     <button type="submit" class="btn btn-primary">Ajouter</button>

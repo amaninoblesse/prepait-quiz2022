@@ -17,7 +17,15 @@
     {% csrf_token %}
     <h1 style="text-align: center;">{{course.course_name}}</h1>
     {% for q in questions%}
-    <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">[Notes {{q.marks}}]</h4>
+    <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">[{{q.marks}} Points]</h4>
+
+        <td> {% if q.question_pic %} 
+          <img src="{% static q.question_pic.url %}" alt="Question Pic" height="200px" width="300px" style="border-radius: 25px;" />
+          {% else %}
+          <p> </p>
+
+          {% endif%}
+        </td>
     
         
         
@@ -26,6 +34,13 @@
             <label class="form-check-label" for="option1">
               {{q.option1}}
             </label>
+            <td> {% if q.option1_pic %} 
+              <img src="{% static q.option1_pic.url %}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
+              {% else %}
+              <p></p>
+    
+              {% endif%}
+            </td>
           </div>
 
         
@@ -34,6 +49,13 @@
             <label class="form-check-label" for="option2">
               {{q.option2}}
             </label>
+            <td> {% if q.option2_pic %} 
+              <img src="{% static q.option2_pic.url %}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
+              {% else %}
+              <p></p>
+    
+              {% endif%}
+            </td>
           </div>
 
         
@@ -42,6 +64,13 @@
             <label class="form-check-label" for="option3">
               {{q.option3}}
             </label>
+            <td> {% if q.option3_pic %} 
+              <img src="{% static q.option3_pic.url %}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
+              {% else %}
+              <p></p>
+    
+              {% endif%}
+            </td>
           </div>
 
         
@@ -50,6 +79,13 @@
             <label class="form-check-label" for="option4">
               {{q.option4}}
             </label>
+            <td> {% if q.option4_pic %} 
+              <img src="{% static q.option4_pic.url %}" alt="Option Pic" height="150px" width="200px;" style="border-radius: 5px;" />
+              {% else %}
+              <p></p>
+    
+              {% endif%}
+            </td>
           </div>
 
         {% endfor %}
