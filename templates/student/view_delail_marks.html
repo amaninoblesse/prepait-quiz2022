@@ -25,7 +25,7 @@
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h6 class="panel-title">Voir les notes</h6>
+      <h6 class="panel-title">Voir les réponses</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
@@ -33,21 +33,22 @@
 
           <th>Libellé Examen</th>
           
-          <th>Total Notes</th>
-          <th>Tentative</th>
-          <th>Date Examen</th>
-          <th>Consulter</th>
+          <th>Questions</th>
+          <th>Réponses</th>
+          
         </tr>
       </thead>
-      {% for t in results %}
+      {% for t in questions %}
       <tr>
 
-        <td> {{t.exam}}</td>
-        <td> {{t.marks}} / {{total_marks}}</td>
-        <td> {{ forloop.counter }}</td>
-        <td> {{t.date}}</td>
-
-        <td><a class="btn btn-danger btn-xs" href="{% url 'detail-marks' t.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        <td> {{course}}</td>
+        <td> {{t.question}}
+            <br>
+            {% if t.question_pic %} 
+              <img src="{% static t.question_pic.url %}" alt="Option Pic" height="75px" width="75px" style="border-radius: 25px;" />
+              {% endif %}
+        </td>
+        <td> {{t.answer}}</td>
         
         
       </tr>

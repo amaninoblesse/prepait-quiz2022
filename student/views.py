@@ -105,6 +105,27 @@ def calculate_marks_view(request):
 
 
 
+
+
+
+@csrf_exempt
+@login_required(login_url='studentlogin')
+@user_passes_test(is_student)
+def detail_marks_view(request,pk):
+    if request.COOKIES.get('course_id') is not None:
+        course_id = request.COOKIES.get('course_id')
+        course=QMODEL.Course.objects.get(id=course_id)
+        
+        # total_marks=0
+        questions=QMODEL.Question.objects.all().filter(course=course)
+
+        return render(request,'student/view_delail_marks.html',{'questions':questions,'course':course})
+
+
+
+
+
+
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 def view_result_view(request):
@@ -118,7 +139,13 @@ def check_marks_view(request,pk):
     course=QMODEL.Course.objects.get(id=pk)
     student = models.Student.objects.get(user_id=request.user.id)
     results= QMODEL.Result.objects.all().filter(exam=course).filter(student=student)
-    return render(request,'student/check_marks.html',{'results':results})
+
+    questions=QMODEL.Question.objects.all().filter(course=course)
+    total_marks=0
+    for q in questions:
+        total_marks=total_marks + q.marks
+
+    return render(request,'student/check_marks.html',{'results':results,'total_marks':total_marks})
 
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
