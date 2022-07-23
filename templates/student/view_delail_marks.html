@@ -45,7 +45,7 @@
         <td> {{t.question}}
             <br>
             {% if t.question_pic %} 
-              <img src="{% static t.question_pic.url %}" alt="Option Pic" height="75px" width="75px" style="border-radius: 25px;" />
+              <img src="{{ t.question_pic.url }}" alt="Option Pic" height="75px" width="75px" style="border-radius: 25px;" />
               {% endif %}
         </td>
         <td> {{t.answer}}</td>

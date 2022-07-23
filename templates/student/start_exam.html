@@ -20,7 +20,7 @@
     <h3 class="text-info">{{ forloop.counter }}. {{q.question}}</h3><h4 style="text-align: right;">[{{q.marks}} Points]</h4>
 
         <td> {% if q.question_pic %} 
-          <img src="{% static q.question_pic.url %}" alt="Question Pic" height="200px" width="300px" style="border-radius: 25px;" />
+          <img src="{{ q.question_pic.url }}" alt="Question Pic" height="200px" width="300px" style="border-radius: 25px;" />
           {% else %}
           <p> </p>
 
@@ -36,7 +36,7 @@
             </label>
             <br>
             <td> {% if q.option1_pic %} 
-              <img src="{% static q.option1_pic.url %}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
+              <img src="{{ q.option1_pic.url }}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
               {% else %}
               <p></p>
     
@@ -52,7 +52,7 @@
             </label>
             <br>
             <td> {% if q.option2_pic %} 
-              <img src="{% static q.option2_pic.url %}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
+              <img src="{{ q.option2_pic.url }}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
               {% else %}
               <p></p>
     
@@ -68,7 +68,7 @@
             </label>
             <br>
             <td> {% if q.option3_pic %} 
-              <img src="{% static q.option3_pic.url %}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
+              <img src="{{ q.option3_pic.url }}" alt="Option Pic" height="150px" width="200px" style="border-radius: 25px;" />
               {% else %}
               <p></p>
     
@@ -84,7 +84,7 @@
             </label>
             <br>
             <td> {% if q.option4_pic %} 
-              <img src="{% static q.option4_pic.url %}" alt="Option Pic" height="150px" width="200px;" style="border-radius: 5px;" />
+              <img src="{{ q.option4_pic.url }}" alt="Option Pic" height="150px" width="200px;" style="border-radius: 5px;" />
               {% else %}
               <p></p>
     

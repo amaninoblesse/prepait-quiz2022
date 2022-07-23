@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-
+import boto3
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'teacher',
     'student',
     'widget_tweaks',
+    'storages',
 
 ]
 
@@ -154,12 +155,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS =[
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 
 
@@ -186,4 +187,44 @@ EMAIL_RECEIVING_USER = ['xxxxxxxxxx@gmail.com'] # email on which you will receiv
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# DEFAULT_FILE_STORAGE = 'onlinequiz.storages.MediaStore' 
+
+
+ 
+# AWS_ACCESS_KEY_ID = "AKIAR4TCFNYFPRI7W5XE"
+# AWS_SECRET_ACCESS_KEY = "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"
+# AWS_STORAGE_BUCKET_NAME = "prepaitnewfiles"
+# AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# AWS_DEFAULT_ACL = "public-read"
+
+
+
+
+
+
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+AWS_ACCESS_KEY_ID = 'AKIAR4TCFNYFPRI7W5XE'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'prepaitnewfiles'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+AWS_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+# DEFAULT_FILE_STORAGE = 'onlinequiz.storage_backends.MediaStorage'  # <-- here is where we reference it
+DEFAULT_FILE_STORAGE = 'onlinequiz.storages.MediaStore'
+

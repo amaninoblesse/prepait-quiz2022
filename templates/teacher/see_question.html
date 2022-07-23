@@ -43,7 +43,7 @@
         <td> {{c.question}}
           <br>
           {% if c.question_pic %} 
-          <img src="{% static q.question_pic.url %}" alt="Question Pic" height="10px" width="100px" style="border-radius: 15px;" />
+          <img src="{{ c.question_pic.url }}" alt="Question Pic" height="10px" width="100px" style="border-radius: 15px;" />
           {% endif%}
         </td>
         
